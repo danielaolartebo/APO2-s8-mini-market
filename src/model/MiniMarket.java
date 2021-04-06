@@ -27,7 +27,7 @@ public class MiniMarket {
 		return name;
 	}
 	
-	public ArrayList<User> getPersons(){
+	public ArrayList<User> getUsers(){
 		return users;
 	}
 	

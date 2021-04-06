@@ -31,7 +31,7 @@ public class Main {
 			
 			case REGISTER:
 			MiBarrio.increaseCounter();
-			System.out.println("TYPE IN YOUR ID NUMBER ");
+			System.out.println("TYPE IN YOUR ID NUMBER");
 			String number = sc.nextLine();
 			System.out.println("SELECT YOUR DOCUMENT's TYPE: " + "\n 1:TARJETA DE IDENTIDAD " + "\n 2:CEDULA DE CIUDADANIA " + "\n 3:PASAPORTE " + "\n 4:CEDULA DE EXTRANJERIA");
 			int type = sc.nextInt();
@@ -72,7 +72,7 @@ public class Main {
 	} while(option == REGISTER);		
 		try {			
 		if(option == EXIT) {		
-			System.out.println("HAVE A GREAT ONE ");
+			System.out.println("HAVE A GREAT ONE");
 		} else {
 			throw new NoValidOptionException();
 			}	
