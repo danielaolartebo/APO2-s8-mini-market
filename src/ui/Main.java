@@ -13,7 +13,8 @@ public class Main {
 	private static final String PASAPORTE = "PP";
 	private static final String CEDULA_EXTRANJERIA = "CE";
 	private static final int REGISTER = 1;
-	private static final int EXIT = 2;
+	private static final int ATTEMPTS = 2;
+	private static final int EXIT = 3;
 	
 	
 	public static void main(String[] args) {
@@ -22,9 +23,8 @@ public class Main {
 		int option = 0; 
 		Scanner sc = new Scanner(System.in);
 		do{
-		System.out.println("WELCOME TO THE MINIMARKET: " + MiBarrio.getName() + " " + "\n CHOOSE AN OPTION: " + "\n 1: REGISTER A USER " + "\n 2: EXIT ");
+		System.out.println("WELCOME TO THE MINIMARKET: " + MiBarrio.getName() + " " + "\n CHOOSE AN OPTION: " + "\n 1: REGISTER A USER " + "\n 2: SHOW REGISTRATION ATTEMPTS " +"\n 3: EXIT ");
 		System.out.println();
-		System.out.println("                           " + "REGISTERED USERS OR REGISTRATION ATTEMPTS:  " + MiBarrio.getCount());
 		option = sc.nextInt();
 		sc.nextLine();
 		switch(option){
@@ -59,6 +59,7 @@ public class Main {
 			}try {
 				MiBarrio.Register(u);
 				System.out.println("USER WAS SUCCESFULLY REGISTERED");
+				System.out.println();
 			}catch(NoAgeException a) {
 				System.err.print(a.getMessage());
 				System.out.println();
@@ -67,21 +68,26 @@ public class Main {
 				System.out.println();
 			}
 			break;
+		
+		
+		case ATTEMPTS:
+			System.out.println("REGISTRATION ATTEMPTS:  " + MiBarrio.getCount());
+			System.out.println();
 		}
 		
-	} while(option == REGISTER);		
-		try {			
+	} while(option == REGISTER || option == ATTEMPTS);		
+		try {
 		if(option == EXIT) {		
-			System.out.println("HAVE A GREAT ONE");
-		} else {
+			System.out.println("HAVE A GREAT ONE!!!");
+			System.out.println();
+		}else {
 			throw new NoValidOptionException();
 			}	
 		} catch(NoValidOptionException valid) {
 			System.err.println(valid.getMessage());
 			System.out.println();
 			valid.printStackTrace();
-		}
-		finally{
+		}finally{
 			sc.close();
 		}
 	}
